@@ -20,3 +20,12 @@ Verification:
   - claims: 17 prose decimals, 0 without a matching results.json value.
   - build: 10 pages, 0 missing-character warnings.
   - check => PASS
+
+---
+
+## 2026-07-02 — reform pass (false-precision fix)
+
+Corpus reform. The paper has no templated closer (ends on the substantive §7 "The Delay Is Bounded") and its molecule/electron distinction and conspiracy-not-needed argument are strong. The one genuine defect was the audit's charge: §5 presented the $289B capitalized stake and the 113x ratio as precise while stating none of the assumptions behind them.
+
+- paper/PAPER.md §5: the sim capitalizes a $15.18B/yr rent at 5% over a 60-year horizon (near the $304B pure perpetuity) to get $288.5B, and 113x is that over the high current-account displacement; none of this was in the prose. Rewrote to state the ~60-year horizon and perpetuity comparison, and added that "the three-figure precision is spurious, and the order of magnitude is the whole of the claim: the exact stake moves with the assumed margin, discount rate, and horizon, none of them measured here." The sound conceptual point (a flow's value is a capital sum, not one coupon) is kept; the false precision is disowned.
+- Verify: voice 0 errors; refs 15/15, 0 missing/0 unused; claims 17/0 unmatched (dollar figures are integers, not gate-checked); check => PASS; synced.
