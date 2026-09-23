@@ -2,6 +2,20 @@
 
 Dated log of editorial passes and verification runs. Newest first.
 
+## 2026-09-23 — prose revision
+
+Prose rewritten against the house standards. Headings: 1. Introduction; 2. Molecule power and electron power; 3. Model; 4. Results (4.1 The price as a lever on the takeoff threshold; 4.2 Harvesting and extending the fossil age; 4.3 Current-account displacement and capitalized rent; 4.4 Bounded delay under global learning); 5. The Romanian case; 6. Limitations (new); 7. Conclusion (new); Reproducibility (new). Tics: "rather than" 4 -> 0, inline ", not X" 6 -> 0, negate-pivots 2 -> 0, "not X but Y" 8 -> 0, "this paper" 4 -> 0.
+
+Corrections found during the pass:
+  - Discount-rate crossover "about 0.165" was the first point of a 0.005 r grid at which the argmax over a 197-point price grid (step 0.035) landed above the trap price. Near the crossover the optimal price moves continuously through the trap price, so the crossover is the root of p_trap - p_opt(r) with p_opt refined by golden-section search; bisection gives r = 0.171 (the price-grid coarseness had pulled the grid crossover more than one r step early). New fields harvest_vs_extend.discount_rate_crossover_exact and p_opt_minus_trap_around_r_crossover (bracket -0.0034 / +0.0032); invariants r_crossover_brackets_trap_price, r_crossover_within_two_grid_steps.
+  - Substitution-speed crossover "about 0.20" (0.025 eta grid) -> 0.188 by the same refinement. New fields substitution_speed_crossover_exact, p_opt_minus_trap_around_eta_crossover; invariant eta_crossover_brackets_trap_price.
+  - Lost export value "1.4 to 2.6 billion dollars" -> 1.4 to 2.5 (5-9 bcm at 8 USD/mcf = 1.41-2.54).
+  - Bounded delay: "a rate four times faster buys about 3 [years]" -> four times faster buys 6, eight times faster buys 3 (rates 0.005/0.02/0.04 give 24/6/3 years).
+  - "an unobstructed importer would electrify within roughly a decade" -> reaches 90 percent electric after about 12 years at the harvest price (new field harvest_years_to_90pct_electric = 12.2).
+  - The harvest-extend figure caption described the left panel as "a patient exporter facing fast substitution"; it is drawn at the default eta = 0.4, r = 0.05. Caption and title corrected; the text now states that the rent-maximizing price (7.71) sits just below the trap price.
+Grid audit: outcome above. Takeoff (9.00), trap (7.88) and lockout (3.67) prices are closed forms; the capitalized rent (289) and ratio (113) are direct integrals.
+Figure titles replaced with descriptive ones.
+
 ## 2026-06-19 — Initial implementation from seed chat
 Scope: full paper built from `chats/chat.md` (two deep-research passes on the Romanian-energy / petrostate-vs-electrostate hypothesis) through the PIATRA pipeline.
 Decision: ships a deterministic dynamical-systems + valuation simulation (no Monte-Carlo, no headline threshold near 0.4), chosen to keep the corpus from sounding like one instrument while honoring a hypothesis that is full of real numbers begging to be modelled correctly.

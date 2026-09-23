@@ -1157,6 +1157,19 @@
     ]
   },
   "harvest_vs_extend": {
+    "discount_rate_crossover_exact": 0.17104889186797667,
+    "p_opt_minus_trap_around_r_crossover": [
+      -0.003373357390367815,
+      0.0032266837326009323
+    ],
+    "p_opt_minus_trap_around_eta_crossover": [
+      0.04797942045834436,
+      -0.038836724167394365
+    ],
+    "substitution_speed_crossover_exact": 0.1884143053437583,
+    "discount_rate_grid_step": 0.004999999999999999,
+    "substitution_speed_grid_step": 0.024999999999999994,
+    "harvest_years_to_90pct_electric": 12.200000000000001,
     "p_star_default": 7.710204081632654,
     "p_trap": 7.88,
     "p_harvest": 9.5,

@@ -41,6 +41,22 @@ def main() -> None:
           f"(extend wins: {hv['extend_wins_when_patient_and_fast']})")
     print(f"  discount-rate crossover       : {hv['discount_rate_crossover']}")
     print(f"  substitution-speed crossover  : {hv['substitution_speed_crossover']}")
+    print(f"  r crossover exact / eta exact : {hv['discount_rate_crossover_exact']:.4f} / {hv['substitution_speed_crossover_exact']:.4f}")
+    print(f"  harvest: years to 90% electric: {hv['harvest_years_to_90pct_electric']:.1f}")
+    checks = {
+        "r_crossover_brackets_trap_price":
+            hv["p_opt_minus_trap_around_r_crossover"][0] < 0 < hv["p_opt_minus_trap_around_r_crossover"][1],
+        "eta_crossover_brackets_trap_price":
+            hv["p_opt_minus_trap_around_eta_crossover"][0] > 0 > hv["p_opt_minus_trap_around_eta_crossover"][1],
+        "r_crossover_within_two_grid_steps":
+            abs(hv["discount_rate_crossover_exact"] - hv["discount_rate_crossover"])
+            <= 2 * hv["discount_rate_grid_step"],
+        "harvest_takes_off_extend_does_not":
+            hv["harvest_takes_off"] and not hv["extend_takes_off"],
+    }
+    for k, v in checks.items():
+        print(f"  check {k:<36}: {'PASS' if v else 'FAIL'}")
+    assert all(checks.values()), checks
     print("MAGNITUDE REPAIR")
     print(f"  current-account share (orig)  : {mr['original_claim_pct']} %")
     print(f"  current-account share (corr)  : "

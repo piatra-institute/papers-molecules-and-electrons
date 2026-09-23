@@ -231,7 +231,73 @@ def harvest_vs_extend() -> dict:
             eta_cross = float(e)
         prev = side
 
+    # Refined crossovers. The scans above report the first grid point (step
+    # 0.005 in r, 0.025 in eta) at which the argmax over a 197-point price grid
+    # lies at or above the trap price. Near the crossover the rent-maximizing
+    # price moves continuously through p_trap, so the crossover is the root of
+    # p_trap - p_opt, with p_opt refined by golden-section search around the
+    # grid argmax and the root located by bisection on a verified bracket.
+    step = grid[1] - grid[0]
+
+    def _p_opt_refined(eta, r):
+        pv = np.array([_pv_rent(float(q), r=r, eta=eta)["pv"] for q in grid])
+        i = int(np.argmax(pv))
+        lo, hi = float(grid[max(i - 1, 0)]), float(grid[min(i + 1, len(grid) - 1)])
+        g = (np.sqrt(5.0) - 1.0) / 2.0
+        f = lambda q: _pv_rent(q, r=r, eta=eta)["pv"]
+        c, d = hi - g * (hi - lo), lo + g * (hi - lo)
+        fc, fd = f(c), f(d)
+        for _ in range(50):
+            if fc > fd:
+                hi, d, fd = d, c, fc
+                c = hi - g * (hi - lo)
+                fc = f(c)
+            else:
+                lo, c, fc = c, d, fd
+                d = lo + g * (hi - lo)
+                fd = f(d)
+        return 0.5 * (lo + hi)
+
+    def _root(fun, lo, hi, it=30):
+        flo, fhi = fun(lo), fun(hi)
+        while (flo > 0) == (fhi > 0):          # widen until the sign changes
+            lo, hi = lo - (hi - lo), hi + (hi - lo)
+            flo, fhi = fun(lo), fun(hi)
+        for _ in range(it):
+            mid = 0.5 * (lo + hi)
+            fm = fun(mid)
+            if (fm > 0) == (flo > 0):
+                lo, flo = mid, fm
+            else:
+                hi, fhi = mid, fm
+        return 0.5 * (lo + hi)
+
+    r_step = r_grid[1] - r_grid[0]
+    eta_step = eta_grid[1] - eta_grid[0]
+    r_cross_exact = _root(lambda rr: p_trap - _p_opt_refined(eta_fast, rr),
+                          r_cross - r_step, r_cross)
+    eta_cross_exact = _root(lambda ee: p_trap - _p_opt_refined(ee, r_patient),
+                            eta_cross - eta_step, eta_cross)
+
+    # bracket confirmation: the refined optimum lies on opposite sides of the
+    # trap price just below and just above each refined crossover
+    r_bracket = [_p_opt_refined(eta_fast, r_cross_exact - 0.002) - p_trap,
+                 _p_opt_refined(eta_fast, r_cross_exact + 0.002) - p_trap]
+    eta_bracket = [_p_opt_refined(eta_cross_exact - 0.01, r_patient) - p_trap,
+                   _p_opt_refined(eta_cross_exact + 0.01, r_patient) - p_trap]
+
+    # time for an importer facing the harvest price to reach 90% electric
+    xs_h = _integrate_x(p_harvest, eta=eta_fast)
+    t90_harvest = float(np.argmax(xs_h > 0.9) * DT)
+
     return {
+        "discount_rate_crossover_exact": float(r_cross_exact),
+        "p_opt_minus_trap_around_r_crossover": [float(v) for v in r_bracket],
+        "p_opt_minus_trap_around_eta_crossover": [float(v) for v in eta_bracket],
+        "substitution_speed_crossover_exact": float(eta_cross_exact),
+        "discount_rate_grid_step": float(r_step),
+        "substitution_speed_grid_step": float(eta_step),
+        "harvest_years_to_90pct_electric": t90_harvest,
         "p_star_default": p_star,
         "p_trap": float(p_trap),
         "p_harvest": p_harvest, "p_extend": p_extend,

@@ -1,0 +1,18 @@
+{
+  "pdf_sha256": "014bc7a371ff318fa6716b07738dc8c6fb7ec25777b0491cb44806457693fdaa",
+  "page_count": 10,
+  "pages_inspected": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "all_pages_inspected": true,
+  "notes": "All 10 pages inspected after the prose revision; figure titles replaced with descriptive ones, broken mathtext in axis labels ('$p_P$ ($/mcf)') fixed, the clipped bar label in the magnitude figure given headroom, and the crossover line redrawn at the refined value. Metadata-only rebuild: the web blurb in metadata.yaml, a hashed build input, changed, so the PDF was re-rendered (627d0f9b0392 to 014bc7a371ff); the rendered text is byte-for-byte identical and no page was re-inspected."
+}
