@@ -2,6 +2,17 @@
 
 Dated log of editorial passes and verification runs. Newest first.
 
+## 2026-09-23 — structured-evidence migration
+
+Structured-evidence migration (references and claims).
+- references.yaml: 15 CSL entries. 8 matched through Crossref and checked for year and title (acemoglu2012, arthur1989, hofbauer1998, nagy2013, overland2019, scholten2016, scholten2018, unruh2000); 7 completed by hand (david1985 via OpenAlex/JSTOR; goldthau2015, hirschman1945 and way2022 with DOIs located through Crossref; yergin2011; iea2025, renamed from international2025, from the IEA report page; tooze2026). In-text author-year citations converted to Pandoc [@id] syntax; the legacy list replaced by the citeproc-rendered list (Chicago author-date). Arthur 1989 page range completed (116-131); Scholten and Bosman 2016 title punctuation corrected; Scholten 2018 series moved to collection-title.
+- Correction: tooze2025 -> tooze2026. The source is Chartbook 439, "Electrostates v. petrostates. Clarifying a tricky distinction", published 2 April 2026. The sentence introducing it described the post as treating the two as "ideal types of how states convert energy into geopolitical power"; the post instead defines an electrostate by a large and increasing electric share of final energy and a petrostate by dependence on oil and gas rents, export earnings or revenue, and warns that the contrast needs care. The sentence now states those definitions ("drawn most sharply by Adam Tooze, who treats them as ideal types..." -> "examined most carefully by Adam Tooze, who defines an electrostate by...").
+- Correction: present value of extending "259 billion" -> "260 billion" (results.json /harvest_vs_extend/pv_extend = 259.53; half-up rounding).
+- claims.yaml: 52 claims (39 computation, 3 source, 2 definition, 3 assumption, 5 interpretation). Computation claims bind every modelled number in the abstract and results sections, plus the calibration inputs, to simulation/output/results.json under run id model. Source claims checked: tooze2026 (two claims, against the post text) and acemoglu2012 (abstract via OpenAlex).
+- Unverified, not bound: the IEA electricity shares of final energy (0.28 China, 0.22 US, 0.21 EU) attributed to iea2025 (report page not machine-readable here); the learning-curve sentence citing nagy2013 and way2022 (Nagy et al.'s abstract supports Wright's law, but the comparison with fossil extraction could not be confirmed from the retrieved abstracts); Neptun Deep's 8 bcm a year from 2027 (uncited public project figure, also a model input).
+- Run: model (uv run python run_all.py); results.json and the three figures reproduced byte for byte.
+- metadata claims_target: claim-ledger.
+
 ## 2026-09-23 — prose revision
 
 Prose rewritten against the house standards. Headings: 1. Introduction; 2. Molecule power and electron power; 3. Model; 4. Results (4.1 The price as a lever on the takeoff threshold; 4.2 Harvesting and extending the fossil age; 4.3 Current-account displacement and capitalized rent; 4.4 Bounded delay under global learning); 5. The Romanian case; 6. Limitations (new); 7. Conclusion (new); Reproducibility (new). Tics: "rather than" 4 -> 0, inline ", not X" 6 -> 0, negate-pivots 2 -> 0, "not X but Y" 8 -> 0, "this paper" 4 -> 0.

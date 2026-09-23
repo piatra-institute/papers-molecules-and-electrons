@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "id": "model",
+  "started": "2026-09-23T03:27:43.019997+00:00",
+  "finished": "2026-09-23T03:28:29.038137+00:00",
+  "command": [
+    "uv",
+    "run",
+    "python",
+    "run_all.py"
+  ],
+  "cwd": "simulation",
+  "runtime": {
+    "scope": "recorder",
+    "python": "3.12.4 (v3.12.4:8e8a4baf65, Jun  6 2024, 17:33:18) [Clang 13.0.0 (clang-1300.0.29.30)]",
+    "platform": "macOS-15.1-arm64-arm-64bit"
+  },
+  "execution_result": null,
+  "execution": {
+    "status": "PASS",
+    "exit_code": 0,
+    "detail": "command completed"
+  },
+  "input_scope": "execution-v1",
+  "additional_inputs": [],
+  "inputs": {
+    "simulation/analyses.py": "cac7cffa7c38e8f2d729ef3b194a39fdb198c194fd7cc70a6ad8c448f9cfe347",
+    "simulation/figures.py": "9897e096f27b5dae742452489e53f6e6ffb79ac7c23b75a5a5bc1f228f84c719",
+    "simulation/pyproject.toml": "43d8fdfdc5be8facea0e8de97e6c3810499370905aad43209d51a5fcd9979e81",
+    "simulation/run_all.py": "8f953cea59abe407604d8d3e33c11580a58ab72b970edc02a314495d95799ebf",
+    "simulation/uv.lock": "3205d5fc33843bb1509165efabc13ee8e49d76b93fb0bc6a8208bdc78abf154c"
+  },
+  "artifacts": {
+    "simulation/output/results.json": "1d378e423503cf3c740ec1b72fa45b25519eed9991a587b603af5050123dc687",
+    "simulation/output/figures/price_lever.png": "ff5075852d7116a0d1e3d74dc65a7fe0cac4cefb68aa4c5f31f62b9a6e101b8c",
+    "simulation/output/figures/harvest_extend.png": "e3bf1e61d3dd063afc4497e14dba91c5e4173a7351e2e4630ab6b328ae8eccd6",
+    "simulation/output/figures/magnitude.png": "43149651cda9a8b71b4f3a3538e1b34755bd614cdb761299e1a011be961cc811"
+  }
+}

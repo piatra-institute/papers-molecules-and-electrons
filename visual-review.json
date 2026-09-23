@@ -1,5 +1,5 @@
 {
-  "pdf_sha256": "014bc7a371ff318fa6716b07738dc8c6fb7ec25777b0491cb44806457693fdaa",
+  "pdf_sha256": "0475dfa5731e5ccaef61c1a4a3bffe6bd7a89012ff09e7590c70fe1b0d4f6862",
   "page_count": 10,
   "pages_inspected": [
     1,
@@ -14,5 +14,5 @@
     10
   ],
   "all_pages_inspected": true,
-  "notes": "All 10 pages inspected after the prose revision; figure titles replaced with descriptive ones, broken mathtext in axis labels ('$p_P$ ($/mcf)') fixed, the clipped bar label in the magnitude figure given headroom, and the crossover line redrawn at the refined value. Metadata-only rebuild: the web blurb in metadata.yaml, a hashed build input, changed, so the PDF was re-rendered (627d0f9b0392 to 014bc7a371ff); the rendered text is byte-for-byte identical and no page was re-inspected."
+  "notes": "All 10 pages inspected after the migration; citations, figures and the citeproc reference list render correctly, with no unresolved citations. Metadata-only rebuild: the web blurb in metadata.yaml, a hashed build input, changed, so the PDF was re-rendered (557dbd80a853 to 0475dfa5731e); the rendered text is byte-for-byte identical and no page was re-inspected."
 }

@@ -1,10 +1,10 @@
 {
-  "manuscript_sha256": "b69617f2e724c0c7490aebb8bba0e57c8ec1e820f6851229513af6981ef32886",
+  "manuscript_sha256": "69a9dd96ba9d0f6d3d5f0ddc713212fb5ec84cd228507a524282af0273b14d1e",
   "full_read": true,
   "argument_review": true,
   "structure_review": true,
   "voice_review": true,
   "source_review": true,
   "final_read": true,
-  "notes": "Prose revision: descriptive headings (Molecule power and electron power, Model, Results subsections, The Romanian case, Limitations, Conclusion, Reproducibility); self-reference, reflexive contrasts and aphoristic closers removed; calibration stated in the Model section; abstract cut from ~470 to 259 words; two grid-derived crossovers and three arithmetic statements corrected."
+  "notes": "Structured-evidence migration: inline bibliography converted to references.yaml (CSL) with Pandoc [@id] citations; claims.yaml ledger and execution receipt added. Two corrections: the Tooze post is dated 2026 and its description now follows the post; the extend present value reads 260 (259.53 in results.json)."
 }

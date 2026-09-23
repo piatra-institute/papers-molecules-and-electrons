@@ -6,7 +6,7 @@ created: 2026-06
 date: June 2026
 paper_dir: paper
 has_simulation: true
-claims_target: results.json
+claims_target: claim-ledger
 repo: git@github.com:piatra-institute/papers-molecules-and-electrons.git
 github: https://github.com/piatra-institute/papers-molecules-and-electrons
 status: published

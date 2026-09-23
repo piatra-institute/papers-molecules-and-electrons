@@ -1,0 +1,234 @@
+# CSL references with stable IDs; cite with Pandoc [@id] syntax.
+# Migrated from the legacy inline bibliography. Entries with a DOI were resolved through doi.org
+# content negotiation (CSL-JSON) and checked for year and title; others were matched in Crossref
+# or entered by hand. Provenance per entry is in sources.md.
+references:
+- id: acemoglu2012
+  type: article-journal
+  title: The Environment and Directed Technical Change
+  author:
+  - given: Daron
+    family: Acemoglu
+  - given: Philippe
+    family: Aghion
+  - given: Leonardo
+    family: Bursztyn
+  - given: David
+    family: Hemous
+  container-title: American Economic Review
+  volume: '102'
+  issue: '1'
+  page: 131-166
+  DOI: 10.1257/aer.102.1.131
+  issued:
+    date-parts:
+    - - 2012
+- id: arthur1989
+  type: article-journal
+  title: Competing Technologies, Increasing Returns, and Lock-In by Historical Events
+  author:
+  - given: W. Brian
+    family: Arthur
+  container-title: The Economic Journal
+  volume: '99'
+  issue: '394'
+  page: 116-131
+  DOI: 10.2307/2234208
+  issued:
+    date-parts:
+    - - 1989
+- type: article-journal
+  title: Clio and the Economics of QWERTY
+  author:
+  - family: David
+    given: Paul A.
+  container-title: American Economic Review
+  volume: '75'
+  issue: '2'
+  page: 332-337
+  URL: https://www.jstor.org/stable/1805621
+  issued:
+    date-parts:
+    - - 1985
+  id: david1985
+- type: book
+  title: 'A Liberal Actor in a Realist World: The European Union Regulatory State and the Global Political
+    Economy of Energy'
+  author:
+  - family: Goldthau
+    given: Andreas
+  - family: Sitter
+    given: Nick
+  publisher: Oxford University Press
+  publisher-place: Oxford
+  DOI: 10.1093/acprof:oso/9780198719595.001.0001
+  issued:
+    date-parts:
+    - - 2015
+  id: goldthau2015
+- type: book
+  title: National Power and the Structure of Foreign Trade
+  author:
+  - family: Hirschman
+    given: Albert O.
+  publisher: University of California Press
+  publisher-place: Berkeley
+  DOI: 10.1525/9780520378179
+  issued:
+    date-parts:
+    - - 1945
+  id: hirschman1945
+- id: hofbauer1998
+  type: book
+  title: Evolutionary Games and Population Dynamics
+  author:
+  - given: Josef
+    family: Hofbauer
+  - given: Karl
+    family: Sigmund
+  publisher: Cambridge University Press
+  DOI: 10.1017/cbo9781139173179
+  issued:
+    date-parts:
+    - - 1998
+- id: iea2025
+  type: report
+  title: 'Electricity 2025: Analysis and Forecast to 2027'
+  author:
+  - literal: International Energy Agency
+  publisher: International Energy Agency
+  publisher-place: Paris
+  URL: https://www.iea.org/reports/electricity-2025
+  issued:
+    date-parts:
+    - - 2025
+- id: nagy2013
+  type: article-journal
+  title: Statistical Basis for Predicting Technological Progress
+  author:
+  - given: Béla
+    family: Nagy
+  - given: J. Doyne
+    family: Farmer
+  - given: Quan M.
+    family: Bui
+  - given: Jessika E.
+    family: Trancik
+  editor:
+  - given: Luís A.
+    family: Nunes Amaral
+  container-title: PLoS ONE
+  volume: '8'
+  issue: '2'
+  page: e52669
+  DOI: 10.1371/journal.pone.0052669
+  issued:
+    date-parts:
+    - - 2013
+- id: overland2019
+  type: article-journal
+  title: 'The GeGaLo index: Geopolitical gains and losses after energy transition'
+  author:
+  - given: Indra
+    family: Overland
+  - given: Morgan
+    family: Bazilian
+  - given: Talgat
+    family: Ilimbek Uulu
+  - given: Roman
+    family: Vakulchuk
+  - given: Kirsten
+    family: Westphal
+  container-title: Energy Strategy Reviews
+  volume: '26'
+  page: '100406'
+  DOI: 10.1016/j.esr.2019.100406
+  issued:
+    date-parts:
+    - - 2019
+- id: scholten2018
+  type: book
+  title: The Geopolitics of Renewables
+  editor:
+  - given: Daniel
+    family: Scholten
+  publisher: Springer International Publishing
+  DOI: 10.1007/978-3-319-67855-9
+  issued:
+    date-parts:
+    - - 2018
+  collection-title: Lecture Notes in Energy
+  publisher-place: Cham
+- id: scholten2016
+  type: article-journal
+  title: 'The Geopolitics of Renewables: Exploring the Political Implications of Renewable Energy Systems'
+  author:
+  - given: Daniel
+    family: Scholten
+  - given: Rick
+    family: Bosman
+  container-title: Technological Forecasting and Social Change
+  volume: '103'
+  page: 273-283
+  DOI: 10.1016/j.techfore.2015.10.014
+  issued:
+    date-parts:
+    - - 2016
+- id: tooze2026
+  type: post-weblog
+  title: 'Chartbook 439: Electrostates v. Petrostates. Clarifying a Tricky Distinction'
+  author:
+  - family: Tooze
+    given: Adam
+  container-title: Chartbook
+  URL: https://adamtooze.substack.com/p/chartbook-439-electrostates-v-petrostates
+  issued:
+    date-parts:
+    - - 2026
+      - 4
+      - 2
+- id: unruh2000
+  type: article-journal
+  title: Understanding carbon lock-in
+  author:
+  - given: Gregory C
+    family: Unruh
+  container-title: Energy Policy
+  volume: '28'
+  issue: '12'
+  page: 817-830
+  DOI: 10.1016/s0301-4215(00)00070-7
+  issued:
+    date-parts:
+    - - 2000
+- type: article-journal
+  title: Empirically Grounded Technology Forecasts and the Energy Transition
+  author:
+  - family: Way
+    given: Rupert
+  - family: Ives
+    given: Matthew C.
+  - family: Mealy
+    given: Penny
+  - family: Farmer
+    given: J. Doyne
+  container-title: Joule
+  volume: '6'
+  issue: '9'
+  page: 2057-2082
+  DOI: 10.1016/j.joule.2022.08.009
+  issued:
+    date-parts:
+    - - 2022
+  id: way2022
+- type: book
+  title: 'The Quest: Energy, Security, and the Remaking of the Modern World'
+  author:
+  - family: Yergin
+    given: Daniel
+  publisher: Penguin Press
+  publisher-place: New York
+  issued:
+    date-parts:
+    - - 2011
+  id: yergin2011

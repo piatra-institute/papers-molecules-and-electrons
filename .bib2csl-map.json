@@ -1,0 +1,153 @@
+[
+ {
+  "id": "acemoglu2012",
+  "families": [
+   "Acemoglu",
+   "Aghion",
+   "Bursztyn",
+   "Hemous"
+  ],
+  "authors_text": "Acemoglu, D., Aghion, P., Bursztyn, L., and Hemous, D.",
+  "year": "2012",
+  "status": "VERIFIED-CROSSREF"
+ },
+ {
+  "id": "arthur1989",
+  "families": [
+   "Arthur"
+  ],
+  "authors_text": "Arthur, W. B.",
+  "year": "1989",
+  "status": "VERIFIED-CROSSREF"
+ },
+ {
+  "id": "david1985",
+  "families": [
+   "David"
+  ],
+  "authors_text": "David, P. A.",
+  "year": "1985",
+  "status": "UNVERIFIED"
+ },
+ {
+  "id": "goldthau2015",
+  "families": [
+   "Goldthau",
+   "Sitter"
+  ],
+  "authors_text": "Goldthau, A., and Sitter, N.",
+  "year": "2015",
+  "status": "UNVERIFIED"
+ },
+ {
+  "id": "hirschman1945",
+  "families": [
+   "Hirschman"
+  ],
+  "authors_text": "Hirschman, A. O.",
+  "year": "1945",
+  "status": "UNVERIFIED"
+ },
+ {
+  "id": "hofbauer1998",
+  "families": [
+   "Hofbauer",
+   "Sigmund"
+  ],
+  "authors_text": "Hofbauer, J., and Sigmund, K.",
+  "year": "1998",
+  "status": "VERIFIED-CROSSREF"
+ },
+ {
+  "id": "international2025",
+  "families": [
+   "International Energy Agency."
+  ],
+  "authors_text": "International Energy Agency.",
+  "year": "2025",
+  "status": "UNVERIFIED"
+ },
+ {
+  "id": "nagy2013",
+  "families": [
+   "Nagy",
+   "Farmer",
+   "Bui",
+   "Trancik"
+  ],
+  "authors_text": "Nagy, B., Farmer, J. D., Bui, Q. M., and Trancik, J. E.",
+  "year": "2013",
+  "status": "VERIFIED-CROSSREF"
+ },
+ {
+  "id": "overland2019",
+  "families": [
+   "Overland",
+   "Bazilian",
+   "Ilimbek Uulu",
+   "Vakulchuk",
+   "Westphal"
+  ],
+  "authors_text": "Overland, I., Bazilian, M., Ilimbek Uulu, T., Vakulchuk, R., and Westphal, K.",
+  "year": "2019",
+  "status": "VERIFIED-CROSSREF"
+ },
+ {
+  "id": "scholten2018",
+  "families": [
+   "Scholten"
+  ],
+  "authors_text": "Scholten, D. (Ed.).",
+  "year": "2018",
+  "status": "VERIFIED-CROSSREF"
+ },
+ {
+  "id": "scholten2016",
+  "families": [
+   "Scholten",
+   "Bosman"
+  ],
+  "authors_text": "Scholten, D., and Bosman, R.",
+  "year": "2016",
+  "status": "VERIFIED-CROSSREF"
+ },
+ {
+  "id": "tooze2025",
+  "families": [
+   "Tooze"
+  ],
+  "authors_text": "Tooze, A.",
+  "year": "2025",
+  "status": "UNVERIFIED"
+ },
+ {
+  "id": "unruh2000",
+  "families": [
+   "Unruh"
+  ],
+  "authors_text": "Unruh, G. C.",
+  "year": "2000",
+  "status": "VERIFIED-CROSSREF"
+ },
+ {
+  "id": "way2022",
+  "families": [
+   "Way",
+   "Ives",
+   "Mealy",
+   "Farmer"
+  ],
+  "authors_text": "Way, R., Ives, M. C., Mealy, P., and Farmer, J. D.",
+  "year": "2022",
+  "status": "UNVERIFIED"
+ },
+ {
+  "id": "yergin2011",
+  "families": [
+   "Yergin"
+  ],
+  "authors_text": "Yergin, D.",
+  "year": "2011",
+  "status": "UNVERIFIED"
+ }
+]

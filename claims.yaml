@@ -1,0 +1,612 @@
+schema: 1
+coverage: reviewed
+reviewed_manuscript_sha256: 69a9dd96ba9d0f6d3d5f0ddc713212fb5ec84cd228507a524282af0273b14d1e
+claims:
+- id: trap-price-abstract
+  kind: computation
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    conditions: default calibration of Section 3; deterministic RK4 integration, step 0.02 years
+    pointer: /price_lever/p_trap
+    reported: '7.88'
+    decimals: 2
+    units: dollars per thousand cubic feet
+  passage: Holding the price below a trap price of 7.88 dollars per thousand cubic feet keeps the importer
+    below threshold.
+- id: extend-harvest-ratio-abstract
+  kind: computation
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    conditions: discount rate 0.03, substitution speed 0.6, extend price 5.5, harvest price 9.5
+    pointer: /harvest_vs_extend/extend_over_harvest_ratio
+    reported: '1.9'
+    decimals: 1
+    units: ratio of present values
+  passage: For a patient exporter facing fast substitution, extending the fossil age by limit pricing
+    yields 1.9 times the present value of harvesting it at a high price, and the rent-maximizing price
+    stays below the trap price only for discount rates below 0.171 and substitution speeds above 0.188.
+- id: r-crossover-abstract
+  kind: computation
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    conditions: substitution speed 0.6; located by bisection on the refined optimum
+    pointer: /harvest_vs_extend/discount_rate_crossover_exact
+    reported: '0.171'
+    decimals: 3
+    units: discount rate per year
+  passage: For a patient exporter facing fast substitution, extending the fossil age by limit pricing
+    yields 1.9 times the present value of harvesting it at a high price, and the rent-maximizing price
+    stays below the trap price only for discount rates below 0.171 and substitution speeds above 0.188.
+- id: eta-crossover-abstract
+  kind: computation
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    conditions: discount rate 0.03; located by bisection on the refined optimum
+    pointer: /harvest_vs_extend/substitution_speed_crossover_exact
+    reported: '0.188'
+    decimals: 3
+    units: substitution speed per year
+  passage: For a patient exporter facing fast substitution, extending the fossil age by limit pricing
+    yields 1.9 times the present value of harvesting it at a high price, and the rent-maximizing price
+    stays below the trap price only for discount rates below 0.171 and substitution speeds above 0.188.
+- id: ca-share-low-abstract
+  kind: computation
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    conditions: 5 bcm displaced at 8 dollars per thousand cubic feet; deficit 1.12 trillion dollars
+    pointer: /magnitude_repair/current_account_share_pct/0
+    reported: '0.13'
+    decimals: 2
+    units: percent of the US current-account deficit
+  passage: The displacement the hypothesis priced amounts to 0.13 to 0.23 percent of the deficit, an order
+    of magnitude less than claimed, whereas the capitalized European rent that a takeoff would terminate
+    is about 289 billion dollars, 113 times the annual figure.
+- id: ca-share-high-abstract
+  kind: computation
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    conditions: 9 bcm displaced at 8 dollars per thousand cubic feet; deficit 1.12 trillion dollars
+    pointer: /magnitude_repair/current_account_share_pct/1
+    reported: '0.23'
+    decimals: 2
+    units: percent of the US current-account deficit
+  passage: The displacement the hypothesis priced amounts to 0.13 to 0.23 percent of the deficit, an order
+    of magnitude less than claimed, whereas the capitalized European rent that a takeoff would terminate
+    is about 289 billion dollars, 113 times the annual figure.
+- id: capitalized-rent-abstract
+  kind: computation
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    conditions: 60-year horizon, discount rate 0.05
+    pointer: /magnitude_repair/capitalized_rent_bn
+    reported: '289'
+    decimals: 0
+    units: billion dollars present value
+  passage: The displacement the hypothesis priced amounts to 0.13 to 0.23 percent of the deficit, an order
+    of magnitude less than claimed, whereas the capitalized European rent that a takeoff would terminate
+    is about 289 billion dollars, 113 times the annual figure.
+- id: stake-ratio-abstract
+  kind: computation
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    conditions: default calibration of Section 3; deterministic RK4 integration, step 0.02 years
+    pointer: /magnitude_repair/stake_to_annual_ca_ratio
+    reported: '113'
+    decimals: 0
+    units: ratio of capitalized rent to the upper annual displacement
+  passage: The displacement the hypothesis priced amounts to 0.13 to 0.23 percent of the deficit, an order
+    of magnitude less than claimed, whereas the capitalized European rent that a takeoff would terminate
+    is about 289 billion dollars, 113 times the annual figure.
+- id: deficit-denominator
+  kind: computation
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    conditions: calibration input (2025 US current-account deficit, public figure)
+    pointer: /params/us_ca_deficit
+    reported: '1.12'
+    decimals: 2
+    scale: 0.001
+    units: trillion dollars
+  passage: The displaced volume is plausible, but the revenue attached to it is inflated by close to an
+    order of magnitude, the deficit used as the denominator was nearer 1.12 trillion dollars than the
+    700 to 900 billion assumed, and the resulting share is about a tenth of the figure claimed.
+- id: calib-lk
+  kind: computation
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    conditions: calibration input
+    pointer: /params/l_minus_k
+    reported: '0.8'
+    decimals: 1
+    units: net learning slope
+  passage: The calibration uses $\ell - \kappa = 0.8$, $A_{\text{base}} = -0.3$ at a reference price of
+    7 dollars per thousand cubic feet, $\alpha = 0.15$, an exporter marginal cost including liquefaction
+    and shipping of 3 dollars, a current European volume of 86 billion cubic metres, an importer electric
+    share $x_0 = 0.21$ and a horizon of 60 years.
+- id: calib-alpha
+  kind: computation
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    conditions: calibration input
+    pointer: /params/alpha
+    reported: '0.15'
+    decimals: 2
+    units: advantage per dollar
+  passage: The calibration uses $\ell - \kappa = 0.8$, $A_{\text{base}} = -0.3$ at a reference price of
+    7 dollars per thousand cubic feet, $\alpha = 0.15$, an exporter marginal cost including liquefaction
+    and shipping of 3 dollars, a current European volume of 86 billion cubic metres, an importer electric
+    share $x_0 = 0.21$ and a horizon of 60 years.
+- id: calib-volume
+  kind: computation
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    conditions: calibration input
+    pointer: /params/v_eu_now
+    reported: '86'
+    decimals: 0
+    units: billion cubic metres per year
+  passage: The calibration uses $\ell - \kappa = 0.8$, $A_{\text{base}} = -0.3$ at a reference price of
+    7 dollars per thousand cubic feet, $\alpha = 0.15$, an exporter marginal cost including liquefaction
+    and shipping of 3 dollars, a current European volume of 86 billion cubic metres, an importer electric
+    share $x_0 = 0.21$ and a horizon of 60 years.
+- id: calib-x0
+  kind: computation
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    conditions: calibration input
+    pointer: /params/x0
+    reported: '0.21'
+    decimals: 2
+    units: electric share of useful energy
+  passage: The calibration uses $\ell - \kappa = 0.8$, $A_{\text{base}} = -0.3$ at a reference price of
+    7 dollars per thousand cubic feet, $\alpha = 0.15$, an exporter marginal cost including liquefaction
+    and shipping of 3 dollars, a current European volume of 86 billion cubic metres, an importer electric
+    share $x_0 = 0.21$ and a horizon of 60 years.
+- id: calib-horizon
+  kind: computation
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    conditions: calibration input
+    pointer: /params/horizon
+    reported: '60'
+    decimals: 0
+    units: years
+  passage: The calibration uses $\ell - \kappa = 0.8$, $A_{\text{base}} = -0.3$ at a reference price of
+    7 dollars per thousand cubic feet, $\alpha = 0.15$, an exporter marginal cost including liquefaction
+    and shipping of 3 dollars, a current European volume of 86 billion cubic metres, an importer electric
+    share $x_0 = 0.21$ and a horizon of 60 years.
+- id: takeoff-price
+  kind: computation
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    conditions: default calibration of Section 3; deterministic RK4 integration, step 0.02 years
+    pointer: /price_lever/p_takeoff
+    reported: '9.00'
+    decimals: 2
+    units: dollars per thousand cubic feet
+  passage: In the calibration the advantage becomes positive, and takeoff automatic, above a price of
+    9.00 dollars per thousand cubic feet; the importer's current share lies on the threshold at 7.88 dollars,
+    the trap price; and below 3.67 dollars the electric equilibrium becomes unreachable (Figure 1).
+- id: trap-price
+  kind: computation
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    conditions: default calibration of Section 3; deterministic RK4 integration, step 0.02 years
+    pointer: /price_lever/p_trap
+    reported: '7.88'
+    decimals: 2
+    units: dollars per thousand cubic feet
+  passage: In the calibration the advantage becomes positive, and takeoff automatic, above a price of
+    9.00 dollars per thousand cubic feet; the importer's current share lies on the threshold at 7.88 dollars,
+    the trap price; and below 3.67 dollars the electric equilibrium becomes unreachable (Figure 1).
+- id: lockout-price
+  kind: computation
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    conditions: default calibration of Section 3; deterministic RK4 integration, step 0.02 years
+    pointer: /price_lever/p_lockout
+    reported: '3.67'
+    decimals: 2
+    units: dollars per thousand cubic feet
+  passage: In the calibration the advantage becomes positive, and takeoff automatic, above a price of
+    9.00 dollars per thousand cubic feet; the importer's current share lies on the threshold at 7.88 dollars,
+    the trap price; and below 3.67 dollars the electric equilibrium becomes unreachable (Figure 1).
+- id: harvest-years
+  kind: computation
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    conditions: harvest price 9.5, substitution speed 0.6
+    pointer: /harvest_vs_extend/harvest_years_to_90pct_electric
+    reported: '12'
+    decimals: 0
+    units: years to 90 percent electric share
+  passage: A harvest price of 9.5 dollars yields a large margin while the importer electrifies, reaching
+    90 percent electric after about 12 years at a substitution speed of 0.6.
+- id: pv-extend
+  kind: computation
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    conditions: extend price 5.5, discount rate 0.03, substitution speed 0.6
+    pointer: /harvest_vs_extend/pv_extend
+    reported: '260'
+    decimals: 0
+    units: billion dollars present value
+  passage: At a discount rate of 0.03 and that substitution speed, the present value of extending is 260
+    billion dollars against 135 billion for harvesting, a ratio of 1.9.
+- id: pv-harvest
+  kind: computation
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    conditions: harvest price 9.5, discount rate 0.03, substitution speed 0.6
+    pointer: /harvest_vs_extend/pv_harvest
+    reported: '135'
+    decimals: 0
+    units: billion dollars present value
+  passage: At a discount rate of 0.03 and that substitution speed, the present value of extending is 260
+    billion dollars against 135 billion for harvesting, a ratio of 1.9.
+- id: pv-ratio
+  kind: computation
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    conditions: default calibration of Section 3; deterministic RK4 integration, step 0.02 years
+    pointer: /harvest_vs_extend/extend_over_harvest_ratio
+    reported: '1.9'
+    decimals: 1
+    units: ratio of present values
+  passage: At a discount rate of 0.03 and that substitution speed, the present value of extending is 260
+    billion dollars against 135 billion for harvesting, a ratio of 1.9.
+- id: p-star-default
+  kind: computation
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    conditions: eta 0.4, r 0.05
+    pointer: /harvest_vs_extend/p_star_default
+    reported: '7.71'
+    decimals: 2
+    units: dollars per thousand cubic feet
+  passage: At the default parameters ($\eta = 0.4$, $r = 0.05$) the rent-maximizing constant price is
+    7.71 dollars, just below the trap price (Figure 2, left).
+- id: r-crossover
+  kind: computation
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    conditions: substitution speed 0.6
+    pointer: /harvest_vs_extend/discount_rate_crossover_exact
+    reported: '0.171'
+    decimals: 3
+    units: discount rate per year
+  passage: As the discount rate rises, the rent-maximizing price moves upward continuously and crosses
+    the trap price at $r = 0.171$ for a substitution speed of 0.6; a sufficiently impatient exporter harvests,
+    because the future volume it would protect is discounted away.
+- id: eta-crossover
+  kind: computation
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    conditions: discount rate 0.03
+    pointer: /harvest_vs_extend/substitution_speed_crossover_exact
+    reported: '0.188'
+    decimals: 3
+    units: substitution speed per year
+  passage: At a discount rate of 0.03, the optimum lies below the trap price only for substitution speeds
+    above 0.188; against a slow transition there is little to defend, and the exporter takes the high
+    margin.
+- id: r-crossover-grid
+  kind: computation
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    conditions: grid scan
+    pointer: /harvest_vs_extend/discount_rate_crossover
+    reported: '0.165'
+    decimals: 3
+    units: discount rate per year
+  passage: Both crossovers were located by bisection on the refined optimum; the grid scans place them
+    at 0.165 and 0.20.
+- id: eta-crossover-grid
+  kind: computation
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    conditions: grid scan
+    pointer: /harvest_vs_extend/substitution_speed_crossover
+    reported: '0.20'
+    decimals: 2
+    units: substitution speed per year
+  passage: Both crossovers were located by bisection on the refined optimum; the grid scans place them
+    at 0.165 and 0.20.
+- id: lost-sales-low
+  kind: computation
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    conditions: 5 bcm at 8 dollars per thousand cubic feet
+    pointer: /magnitude_repair/lost_export_value_bn/0
+    reported: '1.4'
+    decimals: 1
+    units: billion dollars per year
+  passage: At a price of 8 dollars per thousand cubic feet this is 1.4 to 2.5 billion dollars of lost
+    sales, or 0.13 to 0.23 percent of a 1.12 trillion dollar current-account deficit.
+- id: lost-sales-high
+  kind: computation
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    conditions: 9 bcm at 8 dollars per thousand cubic feet
+    pointer: /magnitude_repair/lost_export_value_bn/1
+    reported: '2.5'
+    decimals: 1
+    units: billion dollars per year
+  passage: At a price of 8 dollars per thousand cubic feet this is 1.4 to 2.5 billion dollars of lost
+    sales, or 0.13 to 0.23 percent of a 1.12 trillion dollar current-account deficit.
+- id: ca-share-low
+  kind: computation
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    conditions: default calibration of Section 3; deterministic RK4 integration, step 0.02 years
+    pointer: /magnitude_repair/current_account_share_pct/0
+    reported: '0.13'
+    decimals: 2
+    units: percent of deficit
+  passage: At a price of 8 dollars per thousand cubic feet this is 1.4 to 2.5 billion dollars of lost
+    sales, or 0.13 to 0.23 percent of a 1.12 trillion dollar current-account deficit.
+- id: ca-share-high
+  kind: computation
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    conditions: default calibration of Section 3; deterministic RK4 integration, step 0.02 years
+    pointer: /magnitude_repair/current_account_share_pct/1
+    reported: '0.23'
+    decimals: 2
+    units: percent of deficit
+  passage: At a price of 8 dollars per thousand cubic feet this is 1.4 to 2.5 billion dollars of lost
+    sales, or 0.13 to 0.23 percent of a 1.12 trillion dollar current-account deficit.
+- id: annual-rent
+  kind: computation
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    conditions: default calibration of Section 3; deterministic RK4 integration, step 0.02 years
+    pointer: /magnitude_repair/annual_rent_at_stake_bn
+    reported: '15'
+    decimals: 0
+    units: billion dollars per year
+  passage: The annual rent on the exporter's current European volume is about 15 billion dollars; capitalized
+    over the 60-year working life of the molecular capital, its present value is about 289 billion dollars,
+    close to the 304 billion of an undated perpetuity and 113 times the annual current-account figure
+    (Figure 3).
+- id: capitalized-rent
+  kind: computation
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    conditions: 60-year horizon, discount rate 0.05
+    pointer: /magnitude_repair/capitalized_rent_bn
+    reported: '289'
+    decimals: 0
+    units: billion dollars present value
+  passage: The annual rent on the exporter's current European volume is about 15 billion dollars; capitalized
+    over the 60-year working life of the molecular capital, its present value is about 289 billion dollars,
+    close to the 304 billion of an undated perpetuity and 113 times the annual current-account figure
+    (Figure 3).
+- id: perpetuity
+  kind: computation
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    conditions: undated perpetuity, discount rate 0.05
+    pointer: /magnitude_repair/capitalized_rent_pure_perpetuity_bn
+    reported: '304'
+    decimals: 0
+    units: billion dollars
+  passage: The annual rent on the exporter's current European volume is about 15 billion dollars; capitalized
+    over the 60-year working life of the molecular capital, its present value is about 289 billion dollars,
+    close to the 304 billion of an undated perpetuity and 113 times the annual current-account figure
+    (Figure 3).
+- id: stake-ratio
+  kind: computation
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    conditions: default calibration of Section 3; deterministic RK4 integration, step 0.02 years
+    pointer: /magnitude_repair/stake_to_annual_ca_ratio
+    reported: '113'
+    decimals: 0
+    units: ratio
+  passage: The annual rent on the exporter's current European volume is about 15 billion dollars; capitalized
+    over the 60-year working life of the molecular capital, its present value is about 289 billion dollars,
+    close to the 304 billion of an undated perpetuity and 113 times the annual current-account figure
+    (Figure 3).
+- id: suppression
+  kind: computation
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    conditions: default calibration of Section 3; deterministic RK4 integration, step 0.02 years
+    pointer: /bounded_delay/limit_pricing_suppression
+    reported: '0.12'
+    decimals: 2
+    units: advantage units below takeoff
+  passage: 'If a constant limit price holds the importer''s advantage 0.12 below its takeoff value, global
+    learning closes that distance after a delay inversely proportional to the rival''s deployment rate:
+    about 24 years at the slowest rate considered, 6 years at four times that rate and 3 years at eight
+    times.'
+- id: delay-slow
+  kind: computation
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    conditions: rival deployment rate 0.005
+    pointer: /bounded_delay/by_rival_rate/0/delay_years
+    reported: '24'
+    decimals: 0
+    units: years
+  passage: 'If a constant limit price holds the importer''s advantage 0.12 below its takeoff value, global
+    learning closes that distance after a delay inversely proportional to the rival''s deployment rate:
+    about 24 years at the slowest rate considered, 6 years at four times that rate and 3 years at eight
+    times.'
+- id: delay-4x
+  kind: computation
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    conditions: rival deployment rate 0.02
+    pointer: /bounded_delay/by_rival_rate/2/delay_years
+    reported: '6'
+    decimals: 0
+    units: years
+  passage: 'If a constant limit price holds the importer''s advantage 0.12 below its takeoff value, global
+    learning closes that distance after a delay inversely proportional to the rival''s deployment rate:
+    about 24 years at the slowest rate considered, 6 years at four times that rate and 3 years at eight
+    times.'
+- id: delay-8x
+  kind: computation
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    conditions: rival deployment rate 0.04
+    pointer: /bounded_delay/by_rival_rate/3/delay_years
+    reported: '3'
+    decimals: 0
+    units: years
+  passage: 'If a constant limit price holds the importer''s advantage 0.12 below its takeoff value, global
+    learning closes that distance after a delay inversely proportional to the rival''s deployment rate:
+    about 24 years at the slowest rate considered, 6 years at four times that rate and 3 years at eight
+    times.'
+- id: limitation-crossovers
+  kind: computation
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    conditions: default calibration of Section 3; deterministic RK4 integration, step 0.02 years
+    pointer: /harvest_vs_extend/discount_rate_crossover_exact
+    reported: '0.171'
+    decimals: 3
+    units: discount rate per year
+  passage: The calibration is illustrative, and the crossovers at a discount rate of 0.171 and a substitution
+    speed of 0.188 depend on it.
+- id: tooze-definitions
+  kind: source
+  evidence:
+    citation_id: tooze2026
+    locator: Chartbook 439, opening section
+    verified: true
+    verification_note: 'Post retrieved from adamtooze.substack.com (dated 2 April 2026): it calls a country
+      an electrostate if it draws a large and increasing share of total final energy consumption as electricity,
+      and reserves petrostate for economies dependent on oil and gas for rents, value added, export earnings
+      or government revenue.'
+  passage: The contrast between petrostates and electrostates has been examined most carefully by Adam
+    Tooze, who defines an electrostate by the large and increasing share of its final energy it draws
+    as electricity and a petrostate by its dependence on oil and gas for rents, export earnings or government
+    revenue [@tooze2026].
+- id: tooze-us-both
+  kind: source
+  evidence:
+    citation_id: tooze2026
+    locator: Chartbook 439, sections on the United States
+    verified: true
+    verification_note: 'Same post: the US "is an electrostate, just one that is slouching", while oil
+      and gas are not large enough to make even Texas a petrostate in the strong sense; this supports
+      the dual characterization. The fossil-export focus is the paper''s own scoping.'
+  passage: The United States is not a petrostate in the fiscal sense; it holds molecule power and electron
+    power at once, and the object of analysis is its fossil-export strategy [@tooze2026].
+- id: acemoglu-directed
+  kind: source
+  evidence:
+    citation_id: acemoglu2012
+    locator: Abstract
+    verified: true
+    verification_note: DOI 10.1257/aer.102.1.131; abstract (OpenAlex) describes directed technical change
+      between clean and dirty sectors, with temporary taxation and research subsidies sufficing to redirect
+      innovation when inputs are substitutable.
+  passage: The directed-technical-change feedback that creates the threshold also makes it persistent,
+    since policy that redirects innovation toward the clean sector changes relative costs endogenously
+    [@acemoglu2012].
+- id: molecule-power-def
+  kind: definition
+  rationale: 'Introduces the paper''s first term: leverage from a recurring, metered flow interruptible
+    at chokepoints, following Hirschman''s account of trade dependence.'
+  passage: Oil and gas are flows metered at wells, straits, pipelines and regasification terminals, and
+    the exporter's leverage is the standing option to slow or stop the flow at a chokepoint the importer
+    cannot quickly bypass.
+- id: electron-power-def
+  kind: definition
+  rationale: Defines electron power by the traded capital stock and standards, not a flow; the contrast
+    with molecule power drives the model.
+  passage: An electrostate's leverage is a platform on which others build, and its rent is the margin
+    on installed equipment and control of the next generation of standards.
+- id: structural-delay
+  kind: interpretation
+  rationale: 'Follows from the definitions: molecule revenue requires an unelectrified customer. It is
+    an incentive claim, not a claim about any actor''s intentions.'
+  passage: The fossil exporter therefore has a structural interest in delay that an electron exporter
+    lacks.
+- id: replicator-assumption
+  kind: assumption
+  rationale: Linear advantage function in the electric share; bistability and the trap price depend on
+    this local form, which the Limitations section flags.
+  passage: A local linearization of both gives $\Delta(x) = A + (\ell - \kappa) x$, with learning slope
+    $\ell$ and integration slope $\kappa$, so that
+- id: price-in-advantage
+  kind: assumption
+  rationale: The fossil price shifts the electric advantage linearly; this is the channel through which
+    limit pricing acts.
+  passage: 'The exporter''s price enters $A$: a higher fossil price raises the advantage of electrifying,
+    $A(p_P) = A_{\text{base}} + \alpha (p_P - p_{\text{ref}})$.'
+- id: calibration-illustrative
+  kind: assumption
+  rationale: All modelled numbers are conditional on the stated calibration; crossovers and capitalized
+    stake move with it.
+  passage: The magnitudes are illustrative and anchored to public 2025 figures.
+- id: limit-pricing-reveals
+  kind: interpretation
+  rationale: 'Inference from the harvest/extend comparison: limit pricing pays only when unobstructed
+    substitution is fast, so observing it signals that expectation within the model.'
+  passage: An exporter that holds its price down and forgoes current rents reveals an expectation that
+    the unobstructed transition would be fast, because only that expectation makes the sacrifice pay.
+- id: stake-mispriced
+  kind: interpretation
+  rationale: Compares the capitalized rent with one year of displaced sales; holds for any defensible
+    margin, discount rate and horizon, as stated in the preceding sentence.
+  passage: 'The original argument therefore understated the stake: it priced a perpetuity as a single
+    year''s payment and recorded that payment in the trade balance.'
+- id: no-coordination
+  kind: interpretation
+  rationale: Parsimony argument about the Romanian case; the model shows the outcome is produced without
+    coordination, it does not show that coordination is absent.
+  passage: When four independent mechanisms produce an outcome, a fifth mechanism, a coordinating instruction
+    from Washington, is not required to explain it.
+- id: evidence-limit
+  kind: interpretation
+  rationale: States the evidential limit of the public record on the Romanian case.
+  passage: It does not establish a temporal sequence in which one preceded and produced the other, nor
+    does it document an instruction.
+runs:
+- id: model
+  required: true
+  record: verification/model.json
